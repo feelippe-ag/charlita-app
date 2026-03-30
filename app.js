@@ -230,8 +230,8 @@ async function getAIResponse(userText) {
     chatHistory.push({ role: "user", parts: [{ text: userText }] });
 
     try {
-        // Probamos con v1beta y el alias 'latest' para mayor compatibilidad
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${savedApiKey}`;
+        // ACTUALIZACIÓN: Usamos el modelo que seleccionaste en tu consola (3.1 Flash Lite)
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${savedApiKey}`;
         const response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -258,7 +258,7 @@ async function getAIResponse(userText) {
         if (chatHistory.length > 6) chatHistory = chatHistory.slice(-6);
 
         speakText(aiMsg);
-        infoMsg.innerText = "¡Charlita te responde!";
+        infoMsg.innerText = "¡Charlita te responde! (v2.1)";
 
     } catch (err) {
         console.error(err);
