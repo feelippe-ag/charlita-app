@@ -1,0 +1,419 @@
+/* ========================================= */
+/* PALETA DE COLORES PREMIUM (Charlita 2.0) */
+/* ========================================= */
+:root {
+  --app-bg: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  --primary: #ff6b81; /* Rosa Coral */
+  --secondary: #1dd1a1; /* Verde Menta */
+  --accent: #54a0ff; /* Azul Cielo */
+  --char-body: #feca57; /* Amarillo Sunny */
+  --text-main: #3d3d3d;
+  --glass: rgba(255, 255, 255, 0.45);
+  --shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+/* Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  background: var(--app-bg);
+  color: var(--text-main);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#app-wrapper {
+  width: 100%;
+  max-width: 500px;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.full-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--app-bg);
+  z-index: 100;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ========================================= */
+/* ELEMENTOS DE DISEÑO (Glassmorphism & UX) */
+/* ========================================= */
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 30px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  width: 90%;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  border: 2px solid white;
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  margin-bottom: 2rem;
+}
+
+input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 15px;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  background: white;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.main-cta {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(255, 107, 129, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.main-cta:active {
+  transform: scale(0.95);
+}
+
+/* HUD Superior */
+.top-hud {
+  position: absolute;
+  top: 20px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+}
+
+#time-left-display {
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(255,255,255,0.6);
+  padding: 5px 15px;
+  border-radius: 20px;
+  align-self: center;
+}
+
+.energy-bar-wrap {
+  width: 100%;
+  height: 8px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#energy-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, var(--secondary), #55efc4);
+  transition: width 1s linear;
+}
+
+/* ========================================= */
+/* CHARLITA BODY V2                          */
+/* ========================================= */
+#charlita-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 2rem;
+}
+
+.aura {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(254, 202, 87, 0.4) 0%, transparent 70%);
+  animation: pulseAura 3s infinite ease-in-out;
+}
+
+#charlita-body {
+  width: 100%;
+  height: 100%;
+  background: var(--char-body);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 
+    0 20px 40px rgba(254, 202, 87, 0.4),
+    inset 0 -10px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  animation: floatBody 4s infinite ease-in-out;
+}
+
+.highlights {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.4);
+  filter: blur(5px);
+  border-radius: 50%;
+}
+
+.face {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.eyes-row {
+  display: flex;
+  gap: 50px;
+}
+
+.eye-outer {
+  width: 45px;
+  height: 45px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  animation: blinkEyes 4s infinite;
+}
+
+.eye-pupil {
+  width: 22px;
+  height: 22px;
+  background: var(--text-main);
+  border-radius: 50%;
+  transition: transform 0.1s;
+}
+
+#mouth-zone {
+  width: 80px;
+  height: 30px;
+  background: #d63031;
+  border-radius: 0 0 50px 50px;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Estados de la boca */
+.mouth-speaking {
+  height: 60px !important;
+  width: 60px !important;
+  border-radius: 50% !important;
+  animation: talkAnim 0.15s infinite alternate;
+}
+
+.mouth-listening {
+  height: 10px !important;
+  width: 50px !important;
+  border-radius: 10px !important;
+  background: #2d3436 !important;
+}
+
+/* ========================================= */
+/* CONTROLES Y ANIMACIONES                  */
+/* ========================================= */
+.status-bubble {
+  background: white;
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  position: relative;
+  max-width: 80%;
+}
+
+.status-bubble::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+}
+
+#info-msg {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.magic-btn {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  padding: 10px;
+  background: rgba(255,255,255,0.4);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.btn-inner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary), #ff4d4d);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  box-shadow: 0 10px 20px rgba(255, 107, 129, 0.4);
+  color: white;
+}
+
+.magic-btn:active {
+  transform: scale(0.9);
+}
+
+.magic-btn.recording .btn-inner {
+  background: linear-gradient(135deg, var(--secondary), #10ac84);
+  animation: pulseMic 1.5s infinite;
+}
+
+/* Icono Ajustes */
+#settings-trigger {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  opacity: 0.5;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Modal Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+}
+
+#verify-gate { background: var(--secondary); color: white; }
+
+/* Animaciones */
+@keyframes floatBody {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseAura {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+}
+
+@keyframes blinkEyes {
+  0%, 95%, 100% { transform: scaleY(1); }
+  97% { transform: scaleY(0.1); }
+}
+
+@keyframes talkAnim {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+@keyframes pulseMic {
+  0% { box-shadow: 0 0 0 0 rgba(29, 209, 161, 0.7); }
+  100% { box-shadow: 0 0 0 30px rgba(29, 209, 161, 0); }
+}
+
+/* Sleep Screen */
+.sleep-content {
+  text-align: center;
+}
+
+.sleeping-charlita {
+  font-size: 8rem;
+  margin-bottom: 2rem;
+  animation: floatBody 3s infinite ease-in-out;
+}
+
+.sub-text {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}

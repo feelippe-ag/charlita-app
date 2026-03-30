@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Charlita 2.0 - Tu Amiga Mágica</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-wrapper">
+        
+        <!-- Botón de ajustes (Parent Gate) -->
+        <button id="settings-trigger" class="icon-btn" title="Configurar para padres">⚙️</button>
+
+        <!-- Pantalla de Bienvenida / Carga de Clave (Solo si no hay clave guardada) -->
+        <div id="setup-screen" class="screen full-page">
+            <div class="card glass">
+                <div class="lock-icon">🔒</div>
+                <h1>Panel de Padres</h1>
+                <p>Hola. Para que Charlita cobre vida, ingresa tu API Key de Gemini. Se guardará de forma segura en este navegador.</p>
+                <div class="input-group">
+                    <input type="password" id="api-key-input" placeholder="Pega aquí tu código API...">
+                    <small>Obtén una gratis en <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a></small>
+                </div>
+                <button id="save-config-btn" class="main-cta">Guardar y Jugar ✨</button>
+            </div>
+        </div>
+
+        <!-- Pantalla Principal de Juego -->
+        <div id="game-screen" class="screen hidden">
+            
+            <!-- Barra de estado superior -->
+            <div class="top-hud">
+                <div id="time-left-display">🕒 Jugando...</div>
+                <div class="energy-bar-wrap">
+                    <div id="energy-fill"></div>
+                </div>
+            </div>
+
+            <!-- Personaje Central: Charlita 2.0 -->
+            <div id="charlita-container">
+                <div class="aura"></div>
+                <div id="charlita-body">
+                    <div class="highlights"></div>
+                    <div class="face">
+                        <div class="eyes-row">
+                            <div class="eye-outer left"><div class="eye-pupil"></div></div>
+                            <div class="eye-outer right"><div class="eye-pupil"></div></div>
+                        </div>
+                        <div id="mouth-zone" class="mouth-neutral"></div>
+                    </div>
+                </div>
+                <!-- Visualizador de Volumen (Círculos que reaccionan) -->
+                <div id="volume-viz"></div>
+            </div>
+
+            <!-- Área de Texto/Feedback -->
+            <div class="status-bubble">
+                <p id="info-msg">¡Toca el botón mágico para hablar!</p>
+            </div>
+
+            <!-- El Gran Botón de Acción -->
+            <div class="controls-area">
+                <button id="action-btn" class="magic-btn" aria-label="Hablar con Charlita">
+                    <div class="btn-inner">
+                        <span id="btn-emoji">🎙️</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal de Bloqueo (Parent Gate) -->
+        <div id="parent-gate-modal" class="overlay hidden">
+            <div class="modal card">
+                <h2>¿Eres un adulto?</h2>
+                <p id="math-problem">¿Cuánto es 5 + 3?</p>
+                <input type="number" id="gate-answer" placeholder="Respuesta...">
+                <div class="modal-actions">
+                    <button id="cancel-gate">Volver</button>
+                    <button id="verify-gate">Entrar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla de Sueño (Límite de tiempo) -->
+        <div id="sleep-screen" class="screen hidden full-page">
+            <div class="sleep-content">
+                <div class="floating-stars">✨ ⭐ 🌟</div>
+                <div class="sleeping-charlita">😴</div>
+                <h1>Charlita se fue a dormir</h1>
+                <p>¡Qué divertido fue hablar hoy! Ya es hora de descansar un poquito.</p>
+                <p class="sub-text">Vuelve mañana para más charlas mágicas.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Audio para feedback (Opcional si tuviera archivos, usaremos efectos visuales por ahora) -->
+    <script src="app.js"></script>
+</body>
+</html>
